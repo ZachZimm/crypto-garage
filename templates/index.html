@@ -1,0 +1,16 @@
+<html class="main">
+    {% block header %}<head></head>{% endblock %}
+    {% block content %}
+    <body>
+        <link rel= "stylesheet" type= "text/css" href="/static/styles/app.css">
+        <div class="header">
+            <div class="headeritem">
+                <form method="POST" action="{{url_for('index')}}" >
+                    <input class="button" type="submit" value="Open Sesame!"/>
+                </form>
+            </div>
+        </div>
+
+    </body>
+    {% endblock %}
+</html>
