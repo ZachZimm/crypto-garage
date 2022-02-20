@@ -8,7 +8,7 @@ function App() {
 	const [message, setMessage] = useState({})
 	const query = async () => {
 		var request = '/flask/hello' // This should be passed in as an arg
-		var uri = 'http://localhost:5000' + request
+		var uri = 'http://127.0.0.1:5000' + request
 		console.log(uri)
 		
 		$.getJSON(uri, function(data){

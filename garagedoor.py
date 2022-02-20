@@ -1,3 +1,4 @@
+import imp
 import sys
 import io
 import random
@@ -10,9 +11,9 @@ import pyfirmata
 from api.HelloApiHandler import HelloApiHandler
 
 app = Flask(__name__, static_url_path='',static_folder='frontend/build')
-#cors = CORS(app, resources={r"/flask/*": {"origins": "*"}})
-CORS(app, origins=["http://localhost:3000"])
-app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r"/flask/*": {"origins": "*"}})
+#CORS(app, )#origins=["http://localhost:3000","http://box:3000", "http://192.168.1.212:3000", "http://obsidione:3000/", "http://192.168.1.251"])
+# app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
 
 logging.basicConfig(level=logging.DEBUG)
@@ -22,13 +23,13 @@ logging.getLogger('flask-cors').level = logging.DEBUG
 api.add_resource(HelloApiHandler, '/flask/hello')
 
 api_v2_cors_config = {
-    "origins": ["http://localhost:3000"],
+    "origins": ["*"],
     "methods": ["OPTIONS", "GET", "POST"],
     "allow_headers": ["Authorization", "Content-Type"]
     }
 
 @app.route("/",defaults={'path':''}, methods=["GET"])
-@cross_origin(**api_v2_cors_config)
+# @cross_origin(**api_v2_cors_config)
 def serve(path):
     # if(request.method == "POST"):
     #     pulse()
@@ -46,5 +47,4 @@ if __name__ == "__main__":
     # import webbrowser
     # webbrowser.open("http://127.0.0.1:5000/")
     app.run(debug=True, host='0.0.0.0')
-    app.debug = True
 
