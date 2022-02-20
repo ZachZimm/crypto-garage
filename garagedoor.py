@@ -11,9 +11,9 @@ import pyfirmata
 from api.HelloApiHandler import HelloApiHandler
 
 app = Flask(__name__, static_url_path='',static_folder='frontend/build')
-# cors = CORS(app, resources={r"/flask/*": {"origins": "*"}})
-CORS(app, )#origins=["http://localhost:3000","http://box:3000", "http://192.168.1.212:3000", "http://obsidione:3000/", "http://192.168.1.251"])
-# app.config['CORS_HEADERS'] = 'Content-Type'
+# CORS(app, resources={r"/flask/*": {"origins": "*"}})
+CORS(app, origins=["http://127.0.0.1:3000","http://192.168.1.196:3000","http://192.168.1.196:5000","http://localhost:3000","http://127.0.0.1:5000","http://127.0.0.1:5000/flask/hello"])#,"http://192.168.1.196:5000","http://box:3000","http://localhost:3000","http://localhost:5000", "http://192.168.1.212:3000", "http://obsidione:3000/", "http://192.168.1.251"])
+#app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
 
 logging.basicConfig(level=logging.DEBUG)
@@ -23,7 +23,7 @@ logging.getLogger('flask-cors').level = logging.DEBUG
 api.add_resource(HelloApiHandler, '/flask/hello')
 
 api_v2_cors_config = {
-    "origins": ["*"],
+    "origins": ["http://192.168.1.196:3000","http://box:3000","http://localhost:3000","http://localhost:5000", "http://127.0.0.1:5000" "http://192.168.1.212:3000", "http://obsidione:3000/", "http://192.168.1.251"],
     "methods": ["OPTIONS", "GET", "POST"],
     "allow_headers": ["Authorization", "Content-Type"]
     }
@@ -35,6 +35,7 @@ def serve(path):
     #     pulse()
     # return render_template("index.html")
 
+    # return "Felix!"
     return send_from_directory(app.static_folder, 'index.html')
     
 def pulse():

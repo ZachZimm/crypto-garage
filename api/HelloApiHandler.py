@@ -35,6 +35,6 @@ class HelloApiHandler(Resource):
 #        header = final_ret.headers
 #        header['Access-Control-Allow-Origin'] = '*'
 #        header['Access-Control-Allow-Headers'] = 'Content-Type'
-        final_ret.headers.add("Access-Control-Allow-Headers","*")
-        final_ret.headers.add("Access-Control-Allow-Origin","*")
+        #final_ret.headers.add("Access-Control-Allow-Headers","*")
+        #final_ret.headers.add("Access-Control-Allow-Origin","*")
         return final_ret
