@@ -11,7 +11,7 @@ function App() {
 	})
 	const query = async () => {
 		var request = '/api/1' // This should be passed in as an arg
-		var uri = 'http://127.0.0.1:5000' + request
+		var uri = 'http://192.168.1.196:5000' + request
 		console.log(uri)
 		
 		$.getJSON({url: uri, crossDomain: true}, function(data){

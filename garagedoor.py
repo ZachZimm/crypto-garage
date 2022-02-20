@@ -11,8 +11,8 @@ import pyfirmata
 from api.HelloApiHandler import HelloApiHandler
 
 app = Flask(__name__, static_url_path='',static_folder='frontend/build')
-# CORS(app, resources={r"/flask/*": {"origins": "*"}})
-CORS(app, origins=["http://127.0.0.1:3000","http://192.168.1.196:3000","http://192.168.1.196:5000","http://localhost:3000","http://127.0.0.1:5000","http://127.0.0.1:5000/flask/hello"])#,"http://192.168.1.196:5000","http://box:3000","http://localhost:3000","http://localhost:5000", "http://192.168.1.212:3000", "http://obsidione:3000/", "http://192.168.1.251"])
+CORS(app, resources={r"/flask/*": {"origins": "*"}})
+#CORS(app, origins=["http://127.0.0.1:3000","http://192.168.1.196:3000","http://192.168.1.196:5000","http://localhost:3000","http://127.0.0.1:5000","http://127.0.0.1:5000/flask/hello"])#,"http://192.168.1.196:5000","http://box:3000","http://localhost:3000","http://localhost:5000", "http://192.168.1.212:3000", "http://obsidione:3000/", "http://192.168.1.251"])
 #app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
 
