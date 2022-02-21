@@ -158,20 +158,5 @@ function App() {
   );
 	}
 }
-// return (
-// 	<div className="App">
-// 		<header className="App-header">
-// 			<img src={logo} className="App-logo" alt="logo" />
-// 			<p>
-// 				React + Flask = (this)
-// 			</p>
-// 			<h3>{message.name}</h3> 
-// 			<form onSubmit={postFlask}>
-// 			<Button variant="contained" size="large" className='entryButton' type='submit' color="primary" onClick={connectWalletHandler}>
-// 				Open Sesame!
-// 			</Button>
-// 			</form>
-// 		</header>
-// 	</div>
 
 export default App;
